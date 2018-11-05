@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +16,7 @@ import android.widget.CalendarView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.taweesak.myalarmnotificationstep.MainActivity;
 import com.example.taweesak.myalarmnotificationstep.MyDatabase.MyManage;
 import com.example.taweesak.myalarmnotificationstep.R;
 
@@ -44,7 +48,9 @@ public class MainFragment extends Fragment {
         setController();
 
 //        Toolbar controler
-        /*toolbarControler();*/
+        toolbarControler();
+
+
     }// Main Method
 
     /*@Override
@@ -61,22 +67,22 @@ public class MainFragment extends Fragment {
 
     }*/
 
-    /*@Override
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
 
         inflater.inflate(R.menu.menu_main,menu);
 
 
-    }*/
+    }
 
-    /*private void toolbarControler() {
+    private void toolbarControler() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarMain);
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         setHasOptionsMenu(true); // อนุญาตให้เอา toolbar มาใส่
 
-    }*/
+    }
 
     private void setController() {
 
@@ -104,8 +110,7 @@ public class MainFragment extends Fragment {
                 calendar.set(Calendar.DAY_OF_MONTH, dayInt[0]);
                 calendar.set(Calendar.MONTH, monthInt[0]);
                 calendar.set(Calendar.YEAR, yearInt[0]);
-                /*calendar.set(Calendar.HOUR_OF_DAY, hourInt);
-                calendar.set(Calendar.MINUTE, minuteInt);*/
+
 
                 // New Add ****************
                 calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
